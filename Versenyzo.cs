@@ -7,6 +7,20 @@ internal class Versenyzo
     public string? Egyesulet { get; set; }
     public int[] Pontok { get; set; } = new int[8];
 
+    public int OsszPontszam
+    {
+        get
+        {
+            int op = 0;
+            var rend = Pontok.Order().ToArray();
+            if (rend[0] != 0) op += 10;
+            if (rend[1] != 0) op += 10;
+            for (int i = 2; i < rend.Length; i++)
+                op += rend[i];
+            return op;
+        }
+    }
+
     public Versenyzo(string sor)
     {
         var tmp = sor.Split(';');
