@@ -7,7 +7,7 @@ internal class Versenyzo
     public string? Egyesulet { get; set; }
     public int[] Pontok { get; set; } = new int[8];
 
-    public int OsszPontszam
+    public int OsszPont
     {
         get
         {
@@ -19,6 +19,13 @@ internal class Versenyzo
                 op += rend[i];
             return op;
         }
+    }
+
+    public override string ToString()
+    {
+        return $"\tnev: {Nev}\n" +
+            $"\tegyesulet: {(Egyesulet is null ? "-" : Egyesulet)}\n" +
+            $"\tosszpont: {OsszPont}";
     }
 
     public Versenyzo(string sor)
